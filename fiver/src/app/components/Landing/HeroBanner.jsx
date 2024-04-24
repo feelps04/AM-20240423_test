@@ -89,25 +89,28 @@ function HomeBanner() {
           </button>
         </div>
         <div className="text-white flex gap-4">
-          Popular:{""}
+          Popular:<ul className="flex gap-5">
+          <li className="text-sm py-1 border rounded-full hover:bg-white hover:text-black
+          translation-all duration-300 cursor-pointer"></li>
+          </ul>
           <ul className="flex gap-5">
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition"
+              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black translation-all duration-300 cursor-pointer"
             >
               Website Design
             </li>
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition"
+              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black translation-all duration-300 cursor-pointer"
                 >
               Wordpress
             </li>
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition"
+              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black translation-all duration-300 cursor-pointer"
             >
               Logo Design
             </li>
             <li
-              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black transition"
+              className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black translation-all duration-300 cursor-pointer"
             >
               AI Services
             </li>
