@@ -66,7 +66,7 @@ function HomeBanner() {
           } transition-all duration-1000`}
         />
       </div>
-      <div className="z-10 relative w-[650px] flex justify-center flex-col h-full gap-5 ml-20">
+      <div className="z-1 relative w-[650px] flex justify-center flex-col h-full gap-5 ml-20">
         <h1 className="text-white text-5xl leading-snug">
           Find the perfect&nbsp;
           <i>freelance</i>
