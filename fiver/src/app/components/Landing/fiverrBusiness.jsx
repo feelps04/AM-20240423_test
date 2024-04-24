@@ -1,5 +1,5 @@
 import {react} from "react";
-import FiverrLogo from "./fiverrLogo";
+import FiverrLogo from "..FiverrLogo";
 import {BsCheckCicle} from "react-icons/bs";
 import Image from "next/image";
 
