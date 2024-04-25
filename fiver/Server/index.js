@@ -9,6 +9,8 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT;
+const origin = process.env.Public_URL;
+console.log({ origin });
 
 app.use(
     cors({
