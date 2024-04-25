@@ -22,16 +22,23 @@ function AuthWrapper({ type }) {
     try {
       const { email, password } = values;
       if (email && password) {
-        const {
-          data: {user ,jwt}
-        },
-        const { data: { user } } = await axios.post(
-          type === "login" ? LOGIN_ROUTE : LOGIN_ROUTE, // Keeping the ternary expression as requested
-          { email, password },
-          { withCredentials: true }
-        );
-        setCookies("jwt", {jwt});
-       
+        let response;
+        if (type === "login") {
+          response = await axios.post(
+            LOGIN_ROUTE, 
+            { email, password },
+            { withCredentials: true }
+          );
+        } else if (type === "signup") {
+          response = await axios.post(
+            SIGNUP_ROUTE, 
+            { email, password },
+            { withCredentials: true }
+          );
+        }
+        const { user, jwt } = response.data; // Destructure user and jwt from response.data
+  
+        setCookies("jwt", jwt);
   
         dispatch({ type: reducerCases.CLOSE_AUTH_MODAL });
         if (user) {
@@ -43,6 +50,7 @@ function AuthWrapper({ type }) {
       console.log(err);
     }
   };
+  
   
   
    
