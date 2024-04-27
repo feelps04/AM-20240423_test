@@ -1,20 +1,25 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import { useStateProvider } from "../context/StateContext";
+
 import { useEffect } from "react";
 
+
 function Profile() {
-    const router = useRouter();
-    const [{ userInfo }, dispatch] = useStateProvider();
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [imageHover, setImageHover] = useState(false);
-    const [image, setImage] = useState(undefined);
-    const [errorMessage, setErrorMessage] = useState("");
-    const [data, setData] = useState({
-        userName: "",
-        fullName: "",
-        description: ""
-    });
+  const router = useRouter();
+  const [{ userInfo }, dispatch] = useStateProvider();
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [imageHover, setImageHover] = useState(false);
+  const [image, setImage] = useState(undefined);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [data, setData] = useState({
+    userName: "",
+    fullName: "",
+    description: ""
+  });
+}
+
+
 
     useEffect(() => {
       const handleData = { ...data };
@@ -60,49 +65,7 @@ function Profile() {
             [e.target.name]: e.target.value
         });
     };
-
-
     const setProfile = async () => {
-      try {
-          const response = await axios.post(
-              SET_USER_INFO,
-              { ...data },
-              { withCredentials: true }
-          );
-  
-          if (response.data.userNameError) {
-              setErrorMessage("Enter a unique username.");
-          } else {
-              setErrorMessage("");
-              let imageName = "";
-              if (image) {
-                  const formData = new FormData();
-                  formData.append("imagens", image);
-                  const {
-                      data: { img },
-                  } = await axios.post(SET_USER_IMAGE, formData, {
-                      withCredentials: true,
-                      headers: {
-                          "Content-Type": "multipart/form-data",
-                      },
-                  });
-                  imageName = img;
-              }
-              dispatch({
-                type: reducerCases.SET_USER,
-                userInfo: {
-                  ...userInfo,
-                  ...data,
-                  image: imageName.length ? HOST + "/" + imageName : false,
-                },
-              });
-          }
-      } catch (error) {
-          console.log(error);
-      }
-  };
-  
-       
     const inputClassName = "block p-4 w-full text-sm-900 border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500";
     const labelClassName = "mb-2 text-lg font-medium text-gray-900 dark:text-white";
 

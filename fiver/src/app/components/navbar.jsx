@@ -91,15 +91,38 @@ function Navbar() {
           } = await axios.post(GET_USER_INFO, {}, { withCredentials: true });
           let projectedUserInfo = { ...user };
           if (user.profileImage) {
-            projectedUserInfo.imageName = HOST + "/" + user.profileImage; // Corrigido a adição de imageName
+            projectedUserInfo.imageName = HOST + "/" + user.profileImage;
           }
-          delete projectedUserInfo.image; // Corrigido o nome da variável
+          delete projectedUserInfo.image;
+  
+          const {
+            data: { user },
+          } = await axios.post(
+            GET_USER_INFO,
+            {},
+            {
+              withCredentials: true,
+              headers: {
+                Authorization: `Bearer ${cookies.jwt}`,
+              },
+            }
+          );
+  
+          let projectedUserInfo = { ...user };
+          if (user.image) {
+            projectedUserInfo = {
+              ...projectedUserInfo,
+              imageName: HOST + "/" + user.image,
+            };
+          }
+          delete projectedUserInfo.image;
+  
           dispatch({
             type: reducerCases.SET_USER,
             userInfo: projectedUserInfo,
           });
           setIsLoaded(true);
-          
+  
           if (user.isProfileSet === false) {
             router.push("/profile");
           }
@@ -107,14 +130,15 @@ function Navbar() {
           console.log(err);
         }
       };
-
+  
       getUserInfo();
     } else {
       setIsLoaded(true);
     }
   }, [cookies, userInfo, dispatch]);
-
+  
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
+  
 
   useEffect(() => {
     const clickListener = (e) => {
@@ -122,6 +146,10 @@ function Navbar() {
 
       if (isContextMenuVisible) setIsContextMenuVisible(false);
     };
+
+    if (isContextMenuVisible) {
+      window.addEventListener("click", clickListener);
+    }
 
     if (isContextMenuVisible) {
       window.addEventListener("click", clickListener);
@@ -248,6 +276,6 @@ function Navbar() {
       )}
     </>
   );
-}
+
 
 

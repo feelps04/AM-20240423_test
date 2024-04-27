@@ -16,19 +16,14 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "experimentalDecorators": true, // Adicionando suporte para decoradores
-    "emitDecoratorMetadata": true, // Adicionando suporte para metadados de decoradores
-    "baseUrl": ".", // Configuração opcional, ajuste conforme necessário
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
       ]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    }
   },
   "include": [
     "next-env.d.ts",
