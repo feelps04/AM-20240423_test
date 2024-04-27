@@ -1,26 +1,46 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "experimentalDecorators": true, // Adicionando suporte para decoradores
+    "emitDecoratorMetadata": true, // Adicionando suporte para metadados de decoradores
+    "baseUrl": ".", // Configuração opcional, ajuste conforme necessário
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
     "plugins": [
       {
         "name": "next"
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/pages/index.jsx", "src/app/pages/_documents.jsx", "src/app/pages/_app.jsx", "Server/middlewares/authRoutes.js"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "src/app/pages/index.tsx",
+    "src/app/pages/_documents.tsx",
+    "src/app/pages/_app.tsx",
+    "Server/middlewares/authRoutes.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -88,25 +88,12 @@ function Navbar() {
         try {
           const {
             data: { user },
-          } = await axios.post(
-            GET_USER_INFO,
-            {},
-            {
-              withCredentials: true,
-              headers: {
-                Authorization: `Bearer ${cookies.jwt}`,
-              },
-            }
-          );
-
+          } = await axios.post(GET_USER_INFO, {}, { withCredentials: true });
           let projectedUserInfo = { ...user };
-          if (user.image) {
-            projectedUserInfo = {
-              ...projectedUserInfo,
-              imageName: HOST + "/" + user.image,
-            };
+          if (user.profileImage) {
+            projectedUserInfo.imageName = HOST + "/" + user.profileImage; // Corrigido a adição de imageName
           }
-          delete projectedUserInfo.image;
+          delete projectedUserInfo.image; // Corrigido o nome da variável
           dispatch({
             type: reducerCases.SET_USER,
             userInfo: projectedUserInfo,
@@ -126,20 +113,25 @@ function Navbar() {
       setIsLoaded(true);
     }
   }, [cookies, userInfo, dispatch]);
+
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
+
   useEffect(() => {
     const clickListener = (e) => {
       e.stopPropagation();
 
       if (isContextMenuVisible) setIsContextMenuVisible(false);
     };
+
     if (isContextMenuVisible) {
       window.addEventListener("click", clickListener);
     }
+
     return () => {
       window.removeEventListener("click", clickListener);
     };
   }, [isContextMenuVisible]);
+
   const ContextMenuData = [
     {
       name: "Profile",
@@ -160,6 +152,7 @@ function Navbar() {
       },
     },
   ];
+
 
   return (
     <>
