@@ -1,1 +1,11 @@
 *.mp4 filter=lfs diff=lfs merge=lfs -text
+node_modules/@next/swc-linux-x64-musl/next-swc.linux-x64-musl.node filter=lfs diff=lfs merge=lfs -text
+node_modules/@next/swc-linux-x64-gnu/next-swc.linux-x64-gnu.node filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/gi/index.js filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/gi/index.mjs filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/si/index.js filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/si/index.mjs filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/pi/index.js filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/pi/index.mjs filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/tb/index.js filter=lfs diff=lfs merge=lfs -text
+node_modules/react-icons/tb/index.mjs filter=lfs diff=lfs merge=lfs -text
