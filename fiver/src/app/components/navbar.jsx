@@ -88,57 +88,37 @@ function Navbar() {
         try {
           const {
             data: { user },
-          } = await axios.post(GET_USER_INFO, {}, { withCredentials: true });
+          } = await axios.post(GET_USER_INFO, {}, { headers: {} });
+          console.log({ user });
           let projectedUserInfo = { ...user };
           if (user.profileImage) {
-            projectedUserInfo.imageName = HOST + "/" + user.profileImage;
-          }
-          delete projectedUserInfo.image;
-  
-          const {
-            data: { user },
-          } = await axios.post(
-            GET_USER_INFO,
-            {},
-            {
-              withCredentials: true,
-              headers: {
-                Authorization: `Bearer ${cookies.jwt}`,
-              },
-            }
-          );
-  
-          let projectedUserInfo = { ...user };
-          if (user.image) {
             projectedUserInfo = {
               ...projectedUserInfo,
-              imageName: HOST + "/" + user.image,
+              imageName: HOST + "/" + user.profileImage,
             };
           }
+
           delete projectedUserInfo.image;
-  
           dispatch({
             type: reducerCases.SET_USER,
             userInfo: projectedUserInfo,
           });
           setIsLoaded(true);
-  
-          if (user.isProfileSet === false) {
+          if (user.isProfileInfoSet === false) {
             router.push("/profile");
           }
         } catch (err) {
           console.log(err);
         }
       };
-  
+
       getUserInfo();
     } else {
       setIsLoaded(true);
     }
   }, [cookies, userInfo, dispatch]);
-  
+
   const [isContextMenuVisible, setIsContextMenuVisible] = useState(false);
-  
 
   useEffect(() => {
     const clickListener = (e) => {
@@ -180,7 +160,6 @@ function Navbar() {
       },
     },
   ];
-
 
   return (
     <>
@@ -267,15 +246,14 @@ function Navbar() {
               >
                 Orders
               </li>
-              
-              Switch to {isSeller ?  "Buyer" : "Seller"}
-              
+
+              Switch to {isSeller ? "Buyer" : "Seller"}
             </ul>
           )}
         </nav>
       )}
     </>
   );
+}
 
-
-
+export default Navbar;

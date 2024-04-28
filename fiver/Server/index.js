@@ -23,10 +23,13 @@ app.use(
 
 
 app.use("/uplods/profiles", express.static("uploads/profiles"))
+app.use("/uplods", express.static("uploads"))
 app.use(cookieParser())
 app.use(express.json());
 app.use("/api/auth", authRoutes)
 app.use("/api/gigs", gigsRoutes)
+app.use("/api/order", ordersRoutes)
+
 
 app.listen(port, () => {
     console.log(`[server]: Server is running at http://localhost:${port}`);

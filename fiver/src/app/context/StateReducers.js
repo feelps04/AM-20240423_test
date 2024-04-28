@@ -5,6 +5,7 @@ export const initialState = {
     showSignupModal: true,
     userInfo: undefined,
     isSeller: false,
+    gigData: undefined
 
 };
 
@@ -36,6 +37,16 @@ const reducer = (state, action) => {
                 ...state,
                 userInfo: action.userInfo,
             };
+        case reducerCases.SWITCH_MODE:
+            return {
+                ...state,
+                isSeller: !state.isSeller,
+            };
+        case reducerCases.SET_GIG_DATA:
+            return {
+                ...state,
+                gigData: action.gigData,
+            }
 
 
         default:

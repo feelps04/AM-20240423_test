@@ -10,7 +10,6 @@ import { reducerCases } from "../context/constants";
 
 function AuthWrapper({ type }) {
   const [cookies , setcookies] = useCookies
-  const [cookies, setCookies] = useCookies();
   const [{ showLoginModal, showSignupModal }, dispatch] = useStateProvider();
   const [values, setValues] = useState({ email: "", password: "" });
 
@@ -22,24 +21,16 @@ function AuthWrapper({ type }) {
     try {
       const { email, password } = values;
       if (email && password) {
-        let response;
-        if (type === "login") {
-          response = await axios.post(
-            LOGIN_ROUTE, 
-            { email, password },
-            { withCredentials: true }
-          );
-        } else if (type === "signup") {
-          response = await axios.post(
-            SIGNUP_ROUTE, 
-            { email, password },
-            { withCredentials: true }
-          );
-        }
-        const { user, jwt } = response.data; // Destructure user and jwt from response.data
-  
+        const {
+          data: { user, jwt },
+        } = await axios.post(
+          type === "login"
+            ? LOGIN_ROUTE
+            : SIGNUP_ROUTE,
+          { email, password },
+          { withCredentials: true }
+        );
         setCookies("jwt", jwt);
-  
         dispatch({ type: reducerCases.CLOSE_AUTH_MODAL });
         if (user) {
           dispatch({ type: reducerCases.SET_USER, userInfo: user });
@@ -50,6 +41,7 @@ function AuthWrapper({ type }) {
       console.log(err);
     }
   };
+  
   
   
   

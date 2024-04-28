@@ -36,9 +36,21 @@ model Gigs {
   createdAt DateTime @default(now())
   images String[]
   createdBy User @relation(fields: [userId], references: [id])
+  imagens string []
   userId Int
-  orders Orders[]
-  reviews Reviews[]
+  
+}
+
+model Orders {
+  id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  buyer User @relation(fields: [buyerId],references: [id])
+  buyerId Int
+  paymentIntent String @unique
+  isCompleted Boolean @default(false)
+  gig Gigs @relation(fields:[gigId],references: [id])
+  gigId Int
+  price Int
 }
 
 #preciso fazer o postgress
