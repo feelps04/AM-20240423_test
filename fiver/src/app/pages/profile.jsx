@@ -37,7 +37,7 @@ function Profile() {
       setData(handleData);
       setIsLoaded(true);
     }
-  }, [userInfo]);
+  }, [userInfo, data, image]);
 
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
@@ -122,7 +122,7 @@ function Profile() {
               </label>
               <div className="bg-purple-500 h-10 flex items-center rounded-full relative">
                 {image ? (
-                  <img
+                  <image
                     src={URL.createObjectURL(image)}
                     alt="profile"
                     className="rounded-full"

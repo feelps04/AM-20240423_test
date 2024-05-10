@@ -1,6 +1,6 @@
 import {react} from "react";
-import FiverrLogo from "..FiverrLogo";
-import {BsCheckCicle} from "react-icons/bs";
+import FiverrLogo from "../../components/FiverrLogo";
+import { BsCheckCircle } from "react-icons/bs";
 import Image from "next/image";
 
 function FiverrBusiness() {

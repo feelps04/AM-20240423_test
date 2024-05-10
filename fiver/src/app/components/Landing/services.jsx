@@ -1,4 +1,6 @@
-import { categories } from "@/utils/categories";
+'use client'
+
+import { categories } from "src/app/utils/categories";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";

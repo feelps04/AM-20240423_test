@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import { SEARCH_GIGS_ROUTE } from "../utils/constants";
+import SearchGridItem from "../components/search/SearchGriditem";
 
 function Search() {
   const router = useRouter();

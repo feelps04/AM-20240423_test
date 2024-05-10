@@ -6,5 +6,5 @@ const upload = multer({ dest: "uploads/" });
 gigsRoutes.post("/add", verifyToken, upload.array("imagens"), addGig)
 gigsRoutes.get("/get-user-gigs", verifyToken, getUserAuthGigs)
 gigsRoutes.get("/get-gig-data/:gigId", getGigData);
-gigRoutes.put("/edit-gig/:gigId", verifyToken, upload.array("images"), editGig);
+gigsRoutes.put("/edit-gig/:gigId", verifyToken, upload.array("images"), editGig);
 gigsRoutes.get("/search-gigs", searchGigs)

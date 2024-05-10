@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 function Index() {
   const [cookies] = useCookies()
@@ -19,7 +20,7 @@ function Index() {
       }
     };
     getUserGigs();
-  }, []);
+  }, [cookies.jwt]);
   
   return <div>
     

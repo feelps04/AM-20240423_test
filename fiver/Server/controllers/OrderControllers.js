@@ -5,6 +5,9 @@ export const addOrder = async(req, res, next) => {
         if (req.body.gigId) {
             const { gigId } = req.body;
             const prisma = new PrismaClient();
+            const gig = await prisma.gigs.findUnique({
+                where: { id: parseInt(gigId) },
+              });
             return res.status(200).json({ gig });
 
         }

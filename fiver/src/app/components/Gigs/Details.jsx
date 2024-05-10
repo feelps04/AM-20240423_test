@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useStateProvider } from "../context/StateContext";
+import { useStateProvider } from "../../context/StateContext";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 
@@ -148,8 +148,8 @@ function Details() {
               </div>
             </div>
           </div>
-          <Reviews />
-          {hasOrdered && <AddReview />}
+          {/* <Reviews />
+          {hasOrdered && <AddReview />} */}
         </div>
       )}
     </>

@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { GET_GIG_DATA } from '../utils/constants';
 import { reducerCases } from '../context/constants';
+import Details from '../components/Gigs/Details';
+import Pricing from '../components/Gigs/Pricing';
 
 function GigsPage() {
   const router = useRouter();

@@ -39,7 +39,7 @@
     "src/app/pages/_documents.tsx",
     "src/app/pages/_app.tsx",
     "Server/middlewares/authRoutes.ts"
-  ],
+, "src/app/pages/index.jsx", "src/app/components/clientOnly.jsx", "src/app/context/StateContext.jsx"  ],
   "exclude": [
     "node_modules"
   ]

@@ -8,6 +8,15 @@ import { authRoutes } from "./routes/GigsRoutes.js";
 
 dotenv.config();
 
+// Importe o módulo 'events'
+const EventEmitter = require('events');
+
+// Crie uma instância do EventEmitter
+const emitter = new EventEmitter();
+
+// Aumente o limite máximo de ouvintes
+emitter.setMaxListeners(20); // Defina o número conforme necessário
+
 const app = express();
 const port = process.env.PORT;
 const origin = process.env.Public_URL;

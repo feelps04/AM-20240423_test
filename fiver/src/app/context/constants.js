@@ -5,6 +5,4 @@ export const reducerCases = {
     CLOSE_AUTH_MODAL: "CLOSE_AUTH_MODAL",
     SWITCH_MODE: "SWITCH_MODE",
     SET_GIG_DATA: "SET_GIG_DATA",
-
-
 };
