@@ -7,6 +7,8 @@ import Footer from '../components/Footer'
 
 export default function App({ Component, pageProps }) { // Corrigido o nome da variável pageProps
   const router = useRouter();
+  console.log('_app.tsx');
+
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
       <div className="relative flex flex-col min-h-screen justify-between"> {/* Corrigido o nome da classe e removido h-screen */}

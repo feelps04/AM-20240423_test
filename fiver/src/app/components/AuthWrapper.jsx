@@ -2,7 +2,7 @@
 import { useCookies } from "react-cookie";
 import { LOGIN_ROUTE, SIGNUP_ROUTE } from "../utils/constants";
 import axios from "axios";
-import { useEffect, useState } from "react"; 
+import { useEffect, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { MdFacebook } from "react-icons/md";
 import { useRouter } from "next/router";
@@ -47,9 +47,9 @@ export const AuthWrapper = ({ type }) => {
     const authModal = document.querySelector("#auth-modal");
     const blurDiv = document.querySelector("#blur-div");
     html.style.overflowY = "hidden";
-    const handleBlurDivClick = () => {};
+    const handleBlurDivClick = () => { };
 
-    const handleAuthModalClick = (e) => {};
+    const handleAuthModalClick = (e) => { };
 
     authModal?.addEventListener("click", handleAuthModalClick);
     blurDiv?.addEventListener("click", handleBlurDivClick);

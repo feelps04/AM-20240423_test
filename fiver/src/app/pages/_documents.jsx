@@ -5,6 +5,7 @@ import logo from '../favicon.ico'
 
 class MyDocument extends Document {
   render() {
+    console.log('_document.tsx');
     return (
       <Html>
         <Head>

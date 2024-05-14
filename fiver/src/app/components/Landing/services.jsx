@@ -1,9 +1,8 @@
 'use client'
-
-import { categories } from "src/app/utils/categories";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React from "react";
+import { categories } from '../../utils/categories';
 
 function Services() {
   const router = useRouter();

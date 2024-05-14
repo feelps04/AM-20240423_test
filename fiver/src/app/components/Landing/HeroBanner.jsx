@@ -1,11 +1,10 @@
 'use client'
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
 function HomeBanner() {
-  useClient()
   const router = useRouter();
   const [image, setImage] = useState(3);
 
@@ -24,49 +23,43 @@ function HomeBanner() {
           alt="hero"
           src="/bg-hero1.webp"
           fill
-          className={`${
-            image === 1 ? "opacity-100" : "opacity-0"
-          } transition-all duration-1000`}
+          className={`${image === 1 ? "opacity-100" : "opacity-0"
+            } transition-all duration-1000`}
         />
         <Image
           alt="hero"
           src="/bg-hero2.webp"
           fill
-          className={`${
-            image === 2 ? "opacity-100" : "opacity-0"
-          } transition-all duration-1000`}
+          className={`${image === 2 ? "opacity-100" : "opacity-0"
+            } transition-all duration-1000`}
         />
         <Image
           alt="hero"
           src="/bg-hero3.webp"
           fill
-          className={`${
-            image === 3 ? "opacity-100" : "opacity-0"
-          } transition-all duration-1000`}
+          className={`${image === 3 ? "opacity-100" : "opacity-0"
+            } transition-all duration-1000`}
         />
         <Image
           alt="hero"
           src="/bg-hero4.webp"
           fill
-          className={`${
-            image === 4 ? "opacity-100" : "opacity-0"
-          } transition-all duration-1000`}
+          className={`${image === 4 ? "opacity-100" : "opacity-0"
+            } transition-all duration-1000`}
         />
         <Image
           alt="hero"
           src="/bg-hero5.webp"
           fill
-          className={`${
-            image === 5 ? "opacity-100" : "opacity-0"
-          } transition-all duration-1000`}
+          className={`${image === 5 ? "opacity-100" : "opacity-0"
+            } transition-all duration-1000`}
         />
         <Image
           alt="hero"
           src="/bg-hero6.webp"
           fill
-          className={`${
-            image === 6 ? "opacity-100" : "opacity-0"
-          } transition-all duration-1000`}
+          className={`${image === 6 ? "opacity-100" : "opacity-0"
+            } transition-all duration-1000`}
         />
       </div>
       <div className="z-1 relative w-[650px] flex justify-center flex-col h-full gap-5 ml-20">
@@ -81,9 +74,9 @@ function HomeBanner() {
             <IoSearchOutline className="absolute text-gray-500 text-2xl flex align-middle h-full left-2" />
             <input
               type="text"
-              className="h-14 w-[450px] pl-10 rounded-md rounded-r-none"
+              className="h-14 w-[450px] pl-10 rounded-md rounded-r-none text-black"
               placeholder={`Try "building mobile app"`}
-              
+
             />
           </div>
           <button
@@ -93,7 +86,7 @@ function HomeBanner() {
         </div>
         <div className="text-white flex gap-4">
           Popular:<ul className="flex gap-5">
-          <li className="text-sm py-1 border rounded-full hover:bg-white hover:text-black
+            <li className="text-sm py-1 border rounded-full hover:bg-white hover:text-black
           translation-all duration-300 cursor-pointer"></li>
           </ul>
           <ul className="flex gap-5">
@@ -104,7 +97,7 @@ function HomeBanner() {
             </li>
             <li
               className="text-sm py-1 px-3 border rounded-full hover:bg-white hover:text-black translation-all duration-300 cursor-pointer"
-                >
+            >
               Wordpress
             </li>
             <li

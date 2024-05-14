@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 import { useStateProvider } from "../context/StateContext";
 import { reducerCases } from "../context/constants";
 import FiverrLogo from "./FiverrLogo";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { GET_USER_INFO } from "../utils/constants";
 import { HOST } from "../utils/constants";
 
@@ -15,12 +15,12 @@ import { HOST } from "../utils/constants";
 const Navbar: React.FC = () => {
   const [cookies, setCookie] = useCookies(["jwt"]);
   const router = useRouter();
-   const links = [
-    { linkName: "Home", href: "/", type: "link", handler: () => {} },
-    { linkName: "Services", href: "/services", type: "link", handler: () => {} },
-    { linkName: "Contact", href: "/contact", type: "link", handler: () => {} },
+  const links = [
+    { linkName: "Home", href: "/", type: "link", handler: () => { } },
+    { linkName: "Services", href: "/services", type: "link", handler: () => { } },
+    { linkName: "Contact", href: "/contact", type: "link", handler: () => { } },
   ];
-    
+
   const [navFixed, setNavFixed] = useState(false);
   const [searchData, setSearchData] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
@@ -113,11 +113,10 @@ const Navbar: React.FC = () => {
     <>
       {isLoaded && (
         <nav
-          className={`w-full px-24 flex justify-between items-center py-6  top-0 z-30 transition-all duration-300 ${
-            navFixed || userInfo
-              ? "fixed bg-white border-b border-gray-200"
-              : "absolute bg-transparent border-transparent"
-          }`}
+          className={`w-full px-24 flex justify-between items-center py-6  top-0 z-30 transition-all duration-300 ${navFixed || userInfo
+            ? "fixed bg-white border-b border-gray-200"
+            : "absolute bg-transparent border-transparent"
+            }`}
         >
           <div>
             <Link href="/">
@@ -127,9 +126,8 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
           <div
-            className={`flex ${
-              navFixed || userInfo ? "opacity-100" : "opacity-0"
-            }`}
+            className={`flex ${navFixed || userInfo ? "opacity-100" : "opacity-0"
+              }`}
           >
             <input
               type="text"
@@ -150,13 +148,12 @@ const Navbar: React.FC = () => {
           </div>
           {!userInfo ? (
             <ul className="flex gap-10 items-center">
-               {links.map(({ linkName, handler, type, href }) => {
+              {links.map(({ linkName, handler, type, href }) => {
                 return (
                   <li
                     key={linkName}
-                    className={`${
-                      navFixed ? "text-black" : "text-white"
-                    } font-medium`}
+                    className={`${navFixed ? "text-black" : "text-white"
+                      } font-medium`}
                   >
                     {type === "link" && <Link href={href}>{linkName}</Link>}
                     {type === "button" && (
@@ -165,11 +162,10 @@ const Navbar: React.FC = () => {
                     {type === "button2" && (
                       <button
                         onClick={handler}
-                        className={`border   text-md font-semibold py-1 px-3 rounded-sm ${
-                          navFixed
-                            ? "border-[#1DBF73] text-[#1DBF73]"
-                            : "border-white text-white"
-                        } hover:bg-[#1DBF73] hover:text-white hover:border-[#1DBF73] transition-all duration-500`}
+                        className={`border   text-md font-semibold py-1 px-3 rounded-sm ${navFixed
+                          ? "border-[#1DBF73] text-[#1DBF73]"
+                          : "border-white text-white"
+                          } hover:bg-[#1DBF73] hover:text-white hover:border-[#1DBF73] transition-all duration-500`}
                       >
                         {linkName}
                       </button>

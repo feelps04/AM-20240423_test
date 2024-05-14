@@ -1,41 +1,38 @@
-// layout.tsx
-import React from "react";
+'use client'
+import React, { useEffect } from "react";
 import Head from "next/head";
-import reducer, { initialState } from "../../src/app/context/StateReducers";
-import { StateProvider } from "../../src/app/context/StateContext";
-import Navbar from "../../src/app/components/navbar";
-import Footer from "../../src/app/components/Footer";
+import reducer, { initialState } from "../app/context/StateReducers";
+import { StateProvider } from "../app/context/StateContext";
+import Navbar from "./components/navbar";
+import Footer from "./components/Footer";
+import './globals.css'
+
 
 interface LayoutProps {
-  Component: React.ComponentType<any>;
-  pageProps: any;
-}
+  children: any;
+};
 
-const RootLayout: React.FC<LayoutProps> = ({ Component, pageProps }) => {
-  // Verifica se estamos no lado do cliente
-  const isClient = typeof window !== 'undefined';
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+
+  useEffect(() => {
+    document.title = 'Fiverr Clone';
+  }, []);
 
   return (
-    <html>
+    < html >
+      <Head>
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <title>Fiverr Clone</title>
+      </Head>
       <body>
-        {isClient && (
         <StateProvider initialState={initialState} reducer={reducer}>
-          <Head>
-            <link rel="shortcut icon" href="/favicon.ico" />
-            <title>Fiverr Clone</title>
-          </Head>
-          <div className="relative flex flex-col min-h-screen justify-between">
-            <Navbar />
-            <div className="mb-auto w-full mx-auto">
-              <Component {...pageProps} />
-            </div>
-            <Footer />
-          </div>
+          <Navbar />
+          {children}
+          <Footer />
         </StateProvider>
-        )}
       </body>
-    </html>
+    </html >
   );
-}
+};
 
-export default RootLayout;
+export default Layout;

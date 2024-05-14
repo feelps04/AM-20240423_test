@@ -53,5 +53,3 @@ model Orders {
   price Int
 }
 
-#preciso fazer o postgress
-#voltar pros minutos 1:54 

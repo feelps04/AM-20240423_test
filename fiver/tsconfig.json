@@ -38,8 +38,14 @@
     "src/app/pages/index.tsx",
     "src/app/pages/_documents.tsx",
     "src/app/pages/_app.tsx",
-    "Server/middlewares/authRoutes.ts"
-, "src/app/pages/index.jsx", "src/app/components/clientOnly.jsx", "src/app/context/StateContext.jsx"  ],
+    "Server/middlewares/authRoutes.ts",
+    "src/app/pages/index.jsx",
+    "src/app/components/clientOnly.jsx",
+    "src/app/context/StateContext.jsx",
+    "src/app/components/Footer.jsx",
+    "src/app/components/Landing/Services.jsx",
+    "src/app/components/AuthWrapper.jsx"
+  ],
   "exclude": [
     "node_modules"
   ]
